@@ -26,12 +26,12 @@ module Apnotic
       aps.merge!(badge: badge) if badge
       aps.merge!(sound: sound) if sound
       aps.merge!(category: category) if category
+      aps.merge!(data: custom_payload) if custom_payload
       aps.merge!('content-available' => content_available) if content_available
       aps.merge!('url-args' => url_args) if url_args
       aps.merge!('mutable-content' => mutable_content) if mutable_content
 
       n = { aps: aps }
-      n.merge!(custom_payload) if custom_payload
       n
     end
   end
